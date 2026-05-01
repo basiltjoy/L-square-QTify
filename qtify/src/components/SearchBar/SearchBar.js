@@ -12,7 +12,7 @@ export default function SearchBar() {
     <input
       className={styles.searchbar}
       type="text"
-      placeholder="Search a song of your choice"
+      placeholder="Search"
       value={query}
       onChange={handleChange}
     />
