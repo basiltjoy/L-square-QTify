@@ -1,0 +1,53 @@
+.albumsSection {
+  width: 100%;
+  padding: 40px 0;
+  display: grid;
+  gap: 40px;
+}
+
+.sectionBlock,
+.sliderBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.headingRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.headingRow h2 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.countLabel {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.showAllButton {
+  align-self: flex-start;
+  background: #34c94b;
+  color: #121212;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 22px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .cardGrid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+}
