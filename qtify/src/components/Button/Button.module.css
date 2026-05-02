@@ -1,22 +1,16 @@
-:root {
-  --color-black: #000000;
-  --color-green: #34C94B;
-}
-
 .button {
   background-color: var(--color-black);
-  color: var(--color-green);
-  border: none;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
   border-radius: 8px;
   padding: 10px 20px;
-  font-family: Poppins, sans-serif;
-  font-weight: 500;
-  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .button:hover {
-  cursor: pointer;
-  opacity: 0.8;
+  background-color: var(--color-primary);
+  color: var(--color-black);
 }

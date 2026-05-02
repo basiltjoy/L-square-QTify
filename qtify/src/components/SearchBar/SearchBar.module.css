@@ -1,19 +1,29 @@
-.searchbar {
-  width: 300px;
-  padding: 10px 16px;
-  border: 1px solid #ccc;
-  border-radius: 24px;
-  font-family: Poppins, sans-serif;
-  font-size: 14px;
-  background-color: #fff;
-  outline: none;
-  transition: border-color 0.3s ease;
+.wrapper {
+  display: flex;
+  align-items: center;
+  width: 50%; /* Changed from fixed pixels to percentage */
+  max-width: 568px; /* Keeps it from getting too large on desktop */
+  min-width: 300px; /* Keeps it from getting too small on mobile */
+  height: 48px;
 }
 
-.searchbar:focus {
-  border-color: #34C94B;
+.searchButton {
+  width: 15px;
+  height: 36%;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  border-left: none; /* Merges the button with the input */
+  border-radius: 0px 8px 8px 0px;
+  cursor: pointer;
+  
+  /* Centering Logic */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.searchbar::placeholder {
-  color: #999;
+.searchButton img {
+  width: 20px;   /* Adjust size as per Figma (usually 20px-24px) */
+  height: 20px;
+  object-fit: contain; /* Ensures the icon doesn't stretch */
 }
