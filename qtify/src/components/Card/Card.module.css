@@ -1,0 +1,42 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 159px; /* Adjust based on Figma */
+}
+
+.card {
+  height: 205px;
+  background-color: var(--color-white);
+  border-radius: 10px;
+  overflow: hidden; /* Ensures image doesn't leak out */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.card img {
+  width: 100%;
+  height: 170px; /* Ratio: roughly 80% image, 20% banner */
+  object-fit: cover;
+}
+
+.banner {
+  height: 35px;
+  display: flex;
+  align-items: center;
+  padding: 0px 8px;
+  background-color: white;
+}
+
+.chip {
+  background-color: var(--color-black) !important;
+  color: white !important;
+  font-size: 10px !important;
+}
+
+.titleWrapper p {
+  font-size: 14px;
+  color: var(--color-white);
+  margin: 0;
+}
