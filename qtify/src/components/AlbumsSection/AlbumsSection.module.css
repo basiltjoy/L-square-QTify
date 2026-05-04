@@ -5,7 +5,14 @@
   gap: 40px;
 }
 
-.sectionBlock,
+.sectionBlock {
+  width: 100%;
+  max-width: 100%; 
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+  overflow: hidden; 
+}
 .sliderBlock {
   display: flex;
   flex-direction: column;
@@ -31,8 +38,11 @@
 
 .cardGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 40px;
+  width: 100%;
+  padding: 20px 0;
+  box-sizing: border-box;
 }
 
 .showAllButton {
@@ -52,3 +62,10 @@
   }
 }
 
+.Carouselcard {
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  padding: 0 40px; 
+  box-sizing: border-box;
+}

@@ -1,0 +1,24 @@
+.carouselContainer {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    overflow: hidden;
+    padding: 0 40px;
+    OVERFLOW-X: hidden;
+}
+
+/* 2. The Custom Element */
+swiper-container {
+  width: 100%;
+  height: auto;
+  display: block; /* Ensures it behaves like a block-level box */
+}
+
+/* 3. The Slide itself */
+swiper-slide {
+  width: auto !important; /* Critical: allows the card to keep its own width */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0; /* Prevents cards from squishing */
+}

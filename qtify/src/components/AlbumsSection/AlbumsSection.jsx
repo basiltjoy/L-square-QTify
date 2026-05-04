@@ -3,6 +3,7 @@ import axios from "axios";
 import styles from "./AlbumsSection.module.css";
 import AlbumCard from "../AlbumCard/AlbumCard";
 import AlbumSlider from "../Slider/AlbumSlider";
+import Carousel from "../Carousel/Carousel";
 
 const AlbumsSection = () => {
   const [topAlbums, setTopAlbums] = useState([]);
@@ -41,7 +42,6 @@ const AlbumsSection = () => {
 
   return (
     <section className={styles.albumsSection} aria-label="Albums Section">
-      
       {/* Top Albums Section */}
       <div className={styles.sectionBlock}>
         <div className={styles.headingRow}>
@@ -86,8 +86,14 @@ const AlbumsSection = () => {
             ))}
           </div>
         ) : (
-          <AlbumSlider albums={newAlbums} />
-        )}
+          // <AlbumSlider albums={newAlbums} />
+          // Carousel View (Collapsed)
+          <div className={styles.Carouselcard}>
+                <Carousel 
+            data={newAlbums} 
+            renderComponent={(item) => <AlbumCard album={item} />} />
+          </div>
+         )}
       </div>
 
     </section>

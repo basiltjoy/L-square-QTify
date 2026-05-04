@@ -18,7 +18,7 @@ export default function SearchBar({ placeholder }) {
       <input
         className={styles.searchbar}
         type="text"
-        placeholder={placeholder || "search"}
+        placeholder={"search"}
         value={query}
         onChange={handleChange}
       />
