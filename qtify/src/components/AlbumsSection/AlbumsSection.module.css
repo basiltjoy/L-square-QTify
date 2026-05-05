@@ -24,6 +24,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+  padding-bottom: 5vh;
 }
 
 .headingRow h2 {

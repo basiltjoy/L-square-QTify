@@ -1,7 +1,7 @@
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import AlbumsSection from './components/AlbumsSection/AlbumsSection';
-import SongsSection from './components/SongsSection/SongsSection';
+import SongsTab from "./components/songsTab/SongsTab";
 import './App.css';
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
       <Hero />
       <main>
         <AlbumsSection />
-        <SongsSection />
+        <SongsTab/>
       </main>
     </div>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import { Chip, Tooltip } from "@mui/material";
+import { Chip } from "@mui/material";
 import styles from "./Card.module.css";
 
 const Card = ({ data, type }) => {
@@ -7,7 +7,7 @@ const Card = ({ data, type }) => {
   const getCard = (source) => {
     switch (source) {
       case "album": {
-        const { image, follows, title, songs } = data;
+        const { image, follows, title } = data;
         return (
           <div className={styles.wrapper}>
             <div className={styles.card}>

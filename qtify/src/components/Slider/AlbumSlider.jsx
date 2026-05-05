@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import AlbumCard from "../AlbumCard/AlbumCard";
 import styles from "./AlbumSlider.module.css";
 
-const AlbumSlider = ({ albums }) => {
+const AlbumSlider = ({ albums = [] }) => {
   const visibleCount = 3;
   const [startIndex, setStartIndex] = useState(0);
   const maxIndex = Math.max(0, albums.length - visibleCount);
