@@ -12,15 +12,12 @@ const AlbumsSection = () => {
   const [showAllNew, setShowAllNew] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  // Fetch Data from API
   const fetchAlbumsData = async () => {
     try {
       setLoading(true);
-      // Fetching Top Albums from the provided Crio endpoint
       const response = await axios.get("https://qtify-backend.labs.crio.do/albums/top");
       setTopAlbums(response.data);
       
-      // Fetching New Albums from the provided Crio endpoint
       const newAlbumsResponse = await axios.get("https://qtify-backend.labs.crio.do/albums/new");
       setNewAlbums(newAlbumsResponse.data);
       

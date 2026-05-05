@@ -3,7 +3,6 @@ import { Chip } from "@mui/material";
 import styles from "./Card.module.css";
 
 const Card = ({ data, type }) => {
-  // Logic to handle different types (Album vs Song) if needed later
   const getCard = (source) => {
     switch (source) {
       case "album": {

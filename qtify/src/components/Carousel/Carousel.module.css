@@ -7,18 +7,16 @@
     OVERFLOW-X: hidden;
 }
 
-/* 2. The Custom Element */
 swiper-container {
   width: 100%;
   height: auto;
-  display: block; /* Ensures it behaves like a block-level box */
+  display: block;
 }
 
-/* 3. The Slide itself */
 swiper-slide {
-  width: auto !important; /* Critical: allows the card to keep its own width */
+  width: auto !important;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-shrink: 0; /* Prevents cards from squishing */
+  flex-shrink: 0;
 }

@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import { register } from "swiper/element/bundle";
 import styles from "./Carousel.module.css";
 
-// Register the custom HTML elements provided by Swiper
 register();
 
 const Carousel = ({ data, renderComponent }) => {
@@ -11,18 +10,14 @@ const Carousel = ({ data, renderComponent }) => {
   useEffect(() => {
     const swiperEl = swiperRef.current;
 
-    // Define slider settings
     const settings = {
       slidesPerView: "auto",
       spaceBetween: 40,
-      navigation: true, // Enables arrows
-      allowTouchMove: true, // Enables swiping
+      navigation: true, 
+      allowTouchMove: true,
     };
 
-    // Apply settings to the swiper-container
     Object.assign(swiperEl, settings);
-
-    // Initialize the swiper
     swiperEl.initialize();
   }, [data]);
 
