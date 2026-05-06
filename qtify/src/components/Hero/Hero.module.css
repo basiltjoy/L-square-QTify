@@ -1,16 +1,59 @@
 .hero {
-  height: 250px;
-  /* background-color: #121212; */
+  /* Use min-height instead of height so it can grow if content stacks */
+  min-height: 250px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 40px;
-  color: var(--color-white);
+  color: #ffffff;
+  padding: 20px;
   text-align: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
 }
 
 .hero h1 {
   font-size: 32px;
   font-weight: 600;
-  line-height: 48px;
+  line-height: 1.2; /* Better than fixed px for scaling */
+  margin: 0;
+}
+
+.heroImg {
+  width: 212px;
+  height: auto;
+}
+
+/* RESPONSIVE BREAKPOINT (Mobile & Tablet) */
+@media (max-width: 768px) {
+  .hero {
+    /* Stack image and text vertically */
+    flex-direction: column-reverse; 
+    gap: 20px;
+    padding: 40px 20px;
+    min-height: auto;
+  }
+
+  .hero h1 {
+    /* Scale down font size for smaller screens */
+    font-size: 24px;
+    line-height: 1.4;
+  }
+
+  .heroImg {
+    width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 20px;
+  }
+  
+  .heroImg {
+    width: 120px;
+  }
 }

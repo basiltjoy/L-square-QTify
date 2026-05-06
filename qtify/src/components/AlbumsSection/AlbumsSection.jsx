@@ -11,25 +11,33 @@ const AlbumsSection = () => {
   const [showAllTop, setShowAllTop] = useState(false);
   const [showAllNew, setShowAllNew] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 500);
 
   const fetchAlbumsData = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("https://qtify-backend.labs.crio.do/albums/top");
-      setTopAlbums(response.data);
-      
-      const newAlbumsResponse = await axios.get("https://qtify-backend.labs.crio.do/albums/new");
-      setNewAlbums(newAlbumsResponse.data);
-      
-      setLoading(false);
+      const [topRes, newRes] = await Promise.all([
+        axios.get("https://qtify-backend.labs.crio.do/albums/top"),
+        axios.get("https://qtify-backend.labs.crio.do/albums/new")
+      ]);
+      setTopAlbums(topRes.data);
+      setNewAlbums(newRes.data);
     } catch (error) {
       console.error("Error fetching album data:", error);
+    } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
     fetchAlbumsData();
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 500);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   if (loading) {
@@ -37,27 +45,29 @@ const AlbumsSection = () => {
   }
 
   return (
-    <section className={styles.albumsSection} aria-label="Albums Section">
+    <section className={styles.albumsSection}>
       {/* Top Albums Section */}
       <div className={styles.sectionBlock}>
-        <div className={styles.headingRow}>
-          <h2>Top Albums</h2>
+        <div className={styles.header}>
+          <h2 className={styles.sectionTitle}>Top Albums</h2>
           <button 
             className={styles.showAllButton} 
             onClick={() => setShowAllTop((prev) => !prev)}
           >
-            {showAllTop ? "Collapse" : "Show All"}
+            {isMobile ? "" : showAllTop ? "See Less" : "See More"}
           </button>
         </div>
 
-        {showAllTop ? (
+        {isMobile || showAllTop ? (
           <div className={styles.cardGrid}>
             {topAlbums.map((album) => (
               <AlbumCard key={album.id} album={album} />
             ))}
           </div>
         ) : (
-          <AlbumSlider albums={topAlbums} />
+          <div className={styles.carouselWrapper}>
+             <AlbumSlider albums={topAlbums} />
+          </div>
         )}
       </div>
 
@@ -65,31 +75,31 @@ const AlbumsSection = () => {
 
       {/* New Albums Section */}
       <div className={styles.sectionBlock}>
-        <div className={styles.headingRow}>
-          <h2>New Albums</h2>
+        <div className={styles.header}>
+          <h2 className={styles.sectionTitle}>New Albums</h2>
           <button 
             className={styles.showAllButton} 
             onClick={() => setShowAllNew((prev) => !prev)}
           >
-            {showAllNew ? "Collapse" : "Show All"}
+            {isMobile ? "" : showAllNew ? "See Less" : "See More"}
           </button>
         </div>
 
-        {showAllNew ? (
+        {isMobile || showAllNew ? (
           <div className={styles.cardGrid}>
             {newAlbums.map((album) => (
               <AlbumCard key={album.id} album={album} />
             ))}
           </div>
         ) : (
-          <div className={styles.Carouselcard}>
-                <Carousel 
-            data={newAlbums} 
-            renderComponent={(item) => <AlbumCard album={item} />} />
+          <div className={styles.carouselWrapper}>
+            <Carousel 
+              data={newAlbums} 
+              renderComponent={(item) => <AlbumCard album={item} />} 
+            />
           </div>
-         )}
+        )}
       </div>
-
     </section>
   );
 };

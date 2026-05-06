@@ -1,72 +1,82 @@
 .albumsSection {
-  width: 100%;
-  padding: 40px 0;
-  display: grid;
-  gap: 40px;
+  padding: 20px;
+  background-color: #121212; /* Match QTify dark theme */
+  color: #ffffff;
 }
 
 .sectionBlock {
-  width: 100%;
-  max-width: 100%; 
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 32px;
-  overflow: hidden; 
-}
-.sliderBlock {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
+  margin-bottom: 40px;
 }
 
-.headingRow {
+.header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  padding-bottom: 5vh;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-.headingRow h2 {
-  margin: 0;
-  font-size: 1.6rem;
-}
-
-.countLabel {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.95rem;
-}
-
-.cardGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-  gap: 40px;
-  width: 100%;
-  padding: 20px 0;
-  box-sizing: border-box;
+.sectionTitle {
+  font-size: 20px;
+  font-weight: 600;
 }
 
 .showAllButton {
-  align-self: flex-start;
-  background: #34c94b;
-  color: #121212;
+  background: none;
   border: none;
-  border-radius: 999px;
-  padding: 10px 22px;
+  color: #34ad59; /* QTify Green */
+  font-weight: 600;
   cursor: pointer;
-  font-weight: 700;
+  font-size: 16px;
 }
 
-@media (max-width: 768px) {
-  .cardGrid {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  }
+.showAllButton:hover {
+  text-decoration: underline;
 }
 
-.Carouselcard {
+/* RESPONSIVE GRID SYSTEM */
+.cardGrid {
+  display: grid;
+  gap: 20px;
+  /* This creates as many columns as will fit, min card width 160px */
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  justify-items: center;
+}
+
+.carouselWrapper {
   width: 100%;
-  max-width: 100%;
-  position: relative;
-  padding: 0 40px; 
-  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.divider {
+  border: 0;
+  height: 1px;
+  background: #333;
+  margin: 40px 0;
+}
+
+.loading {
+  text-align: center;
+  color: #34ad59;
+  padding: 50px;
+}
+
+/* MEDIA QUERIES FOR SMALLER SCREENS */
+@media (max-width: 600px) {
+  .albumsSection {
+    padding: 10px;
+  }
+
+  .header {
+    margin-bottom: 15px;
+  }
+
+  .sectionTitle {
+    font-size: 18px;
+  }
+
+  /* Shrink cards slightly on mobile to fit 2-column layouts if needed */
+  .cardGrid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+  }
 }

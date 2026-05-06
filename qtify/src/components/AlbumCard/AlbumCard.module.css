@@ -4,28 +4,56 @@
   background: #121212;
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 18px;
+  border-radius: 10px; /* Slightly smaller radius looks better on small screens */
   overflow: hidden;
-  min-width: 180px;
+  /* REMOVED: min-width: 180px - Let the parent (Grid/Slider) decide the width */
+  width: 100%; 
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  background: #1e1e1e;
 }
 
 .cover {
   width: 100%;
-  height: 180px;
+  /* Use aspect-ratio instead of a fixed height */
+  aspect-ratio: 1 / 1; 
   object-fit: cover;
+  display: block;
 }
 
 .info {
-  padding: 16px;
+  padding: 12px; /* Reduced padding slightly for better mobile fit */
 }
 
 .info h3 {
-  margin: 0 0 8px;
-  font-size: 1rem;
+  margin: 0 0 4px;
+  font-size: 0.95rem;
+  /* Prevent long titles from breaking the layout */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .info p {
   margin: 0;
   color: rgba(255, 255, 255, 0.7);
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+}
+
+/* MOBILE SPECIFIC TUNING */
+@media (max-width: 600px) {
+  .info {
+    padding: 8px;
+  }
+  
+  .info h3 {
+    font-size: 0.85rem;
+  }
+  
+  .info p {
+    font-size: 0.75rem;
+  }
 }
