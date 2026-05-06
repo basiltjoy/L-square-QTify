@@ -7,7 +7,6 @@ const AlbumSlider = ({ albums = [] }) => {
   const [startIndex, setStartIndex] = useState(0);
 
   useEffect(() => {
-    //screen wise visible count handler
     const updateVisibleCount = () => {
       const width = window.innerWidth;
       if (width < 600) setVisibleCount(1);      
